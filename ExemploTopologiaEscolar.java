@@ -73,8 +73,13 @@ public class ExemploTopologiaEscolar {
                     "PC-ADMINISTRATIVO-" + i);
         }
 
-        // Executa a busca em largura
-        System.out.println("Percurso da rede escolar:");
+        // Executa a busca em largura (por camadas)
+        System.out.println("Percurso da rede escolar - busca em largura:");
         rede.BuscaEmLargura();
+
+        // Executa a busca em profundidade (por ramos)
+        System.out.println();
+        System.out.println("Percurso da rede escolar - busca em profundidade:");
+        rede.BuscaEmProfundidade();
     }
 }

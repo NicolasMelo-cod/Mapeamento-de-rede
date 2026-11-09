@@ -19,7 +19,12 @@ public class ExemploGrafo {
         grafo.adicionarAresta(2.0, "Claudio", "Lorenzo");
         grafo.adicionarAresta(3.0, "Claudio", "Paulo");
         
+        System.out.println("Busca em largura:");
         grafo.BuscaEmLargura();
-        
+
+        System.out.println();
+        System.out.println("Busca em profundidade:");
+        grafo.BuscaEmProfundidade();
+
     }
 }

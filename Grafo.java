@@ -53,7 +53,7 @@ public class Grafo<TIPO> {
         ArrayList<Vertice<TIPO>> fila =
                 new ArrayList<Vertice<TIPO>>();
 
-        Vertice<TIPO> atual = this.vertices.get(4);
+        Vertice<TIPO> atual = this.vertices.get(0);
 
         marcados.add(atual);
         System.out.println(atual.getDado());
@@ -82,6 +82,38 @@ public class Grafo<TIPO> {
             fila.remove(0);
         }
     }
-    
-    
+
+    public void BuscaEmProfundidade() {
+
+        ArrayList<Vertice<TIPO>> marcados =
+                new ArrayList<Vertice<TIPO>>();
+
+        Vertice<TIPO> atual = this.vertices.get(0);
+
+        visitar(atual, marcados);
+    }
+
+    // Visita o vertice e desce por cada caminho ate o fim
+    // antes de voltar e tentar o proximo caminho
+    private void visitar(Vertice<TIPO> atual,
+                         ArrayList<Vertice<TIPO>> marcados) {
+
+        marcados.add(atual);
+        System.out.println(atual.getDado());
+
+        for (int i = 0;
+             i < atual.getArestasSaida().size();
+             i++) {
+
+            Vertice<TIPO> proximo =
+                    atual.getArestasSaida()
+                            .get(i)
+                            .getFim();
+
+            if (!marcados.contains(proximo)) {
+                visitar(proximo, marcados);
+            }
+        }
+    }
+
 }
